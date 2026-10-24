@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Malini ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: radial-gradient(circle at 18% 10%, #502c88, transparent 35%), radial-gradient(circle at 85% 25%, #123d78, transparent 38%), linear-gradient(145deg, #160d38, #07172f 65%, #08081b);
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 25px 12px;
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    color: #ffd978;
+    text-shadow: 0 0 15px #ff3c9b, 0 0 35px #ff3c9b;
+    animation: glow 2s infinite alternate;
+}
+
+h1 span {
+    color: #ff77bd;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #f4d9ff;
+}
+
+@keyframes glow {
+    to { text-shadow: 0 0 25px #ff3c9b, 0 0 50px #ffb4dc; }
+}
+
+/* 3D ENVELOPE */
+
+.scene {
+    height: 370px;
+    display: grid;
+    place-items: center;
+    perspective: 1100px;
+}
+
+.envelope {
+    width: min(85vw, 430px);
+    height: 245px;
+    position: relative;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 20px 20px #0007);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffb9df, #ff5da8 55%, #5aaeff);
+}
+
+.letter {
+    position: absolute;
+    z-index: 2;
+    left: 5%;
+    width: 90%;
+    height: 310px;
+    bottom: 10px;
+    padding: 18px 16px;
+    border-radius: 14px;
+    color: #861344;
+    background: linear-gradient(145deg, #fff, #ffe4ef);
+    box-shadow: 0 0 25px #ffacd0;
+    transform: translateY(105px);
+    transition: transform 1s ease;
+}
+
+.letter h2 {
+    color: #e91e75;
+    font-size: 27px;
+    margin: 5px 0 12px;
+}
+
+.cake {
+    font-size: 38px;
+}
+
+.message {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.flap {
+    position: absolute;
+    inset: 0;
+    height: 60%;
+    z-index: 5;
+    transform-origin: top center;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: linear-gradient(140deg, #ffd3e4, #8acbff);
+    transition: transform .8s, z-index .1s .4s;
+}
+
+.front-left, .front-right, .front-bottom {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.front-left {
+    clip-path: polygon(0 0, 52% 58%, 0 100%);
+    background: #ff91bc;
+}
+
+.front-right {
+    clip-path: polygon(100% 0, 48% 58%, 100% 100%);
+    background: linear-gradient(135deg, #f45a9e, #539fff);
+}
+
+.front-bottom {
+    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    background: linear-gradient(135deg, #ff9ac4, #579dff);
+}
+
+.seal {
+    position: absolute;
+    z-index: 7;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #e91467;
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 0 20px #ff75b5;
+    transition: .3s;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .letter {
+    transform: translateY(-70px) translateZ(15px);
+}
+
+.envelope.open .seal {
+    opacity: 0;
+}
+
+/* LOVE FASTER BUTTON */
+
+.love-button {
+    border: none;
+    border-radius: 50px;
+    padding: 13px 25px;
+    color: white;
+    background: linear-gradient(#ff66b1, #f00065);
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #a9004b, 0 0 20px #ff288c;
+    transition: .2s;
+}
+
+.love-button:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+
+.love-button:active {
+    transform: translateY(3px);
+}
+
+.note {
+    font-size: 11px;
+    margin-top: 10px;
+    color: #b74c80;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.controls button {
+    padding: 12px 19px;
+    color: white;
+    border: 1px solid #ffffff88;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff4f9a, #7a65ff 55%, #28baff);
+    box-shadow: 0 4px 0 #382a83, 0 0 18px #ff70c988;
+    transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.controls button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.12);
+    box-shadow: 0 7px 0 #382a83, 0 0 25px #64cfffaa;
+}
+.controls button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #382a83;
+}
+#openButton {
+    background: linear-gradient(135deg, #ff4f9a, #ff77bd);
+    box-shadow: 0 4px 0 #a92364, 0 0 18px #ff70c988;
+}
+#fireworkButton {
+    background: linear-gradient(135deg, #338dff, #4c5bff 55%, #8c65ff);
+    box-shadow: 0 4px 0 #2833a0, 0 0 18px #56baff88;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #cbb5e9;
+}
+
+/* FLOATING BALLOONS */
+
+#balloons, #rockets, #confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 53px;
+    border-radius: 50%;
+    background: var(--color);
+    box-shadow: inset -7px -7px 0 #0002, 0 0 18px var(--color);
+    animation: floatUp var(--duration) linear forwards;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    left: 19px;
+    top: 53px;
+    width: 1px;
+    height: 65px;
+    background: #ffffff88;
+}
+
+@keyframes floatUp {
+    50% { transform: translate(30px, -50vh) rotate(8deg); }
+    100% { transform: translate(-10px, -120vh) rotate(-8deg); }
+}
+
+/* DIWALI ROCKETS */
+
+.rocket {
+    position: absolute;
+    bottom: -60px;
+    left: var(--x);
+    width: 13px;
+    height: 38px;
+    border-radius: 50% 50% 4px 4px;
+    background: linear-gradient(90deg, #ffe99a, #ff573f, #fff2a3);
+    box-shadow: 0 0 15px orange;
+    animation: rocketUp 1.4s ease-in forwards;
+}
+
+.rocket::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -5px;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 16px solid #ff3f91;
+}
+
+.rocket::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 4px;
+    width: 6px;
+    height: 45px;
+    background: linear-gradient(yellow, transparent);
+    filter: blur(3px);
+}
+
+@keyframes rocketUp {
+    to { transform: translateY(-115vh); opacity: .15; }
+}
+
+/* FALLING CONFETTI */
+
+.confetti {
+    position: absolute;
+    top: -15px;
+    width: 8px;
+    height: 13px;
+    background: var(--color);
+    animation: fall var(--duration) linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translate(var(--drift), 110vh) rotate(800deg);
+        opacity: .2;
+    }
+}
+
+.heart {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    color: #ff4b9b;
+    font-size: 25px;
+    animation: heartFly 1.5s ease-out forwards;
+}
+
+@keyframes heartFly {
+    from { transform: translate(0, 0) scale(.4); opacity: 1; }
+    to { transform: translate(var(--dx), -150px) scale(1.5); opacity: 0; }
+}
+
+@media(max-width: 500px) {
+    .scene { height: 350px; }
+    .envelope { height: 225px; }
+    .letter { padding: 15px 12px; height: 305px; }
+    .letter h2 { font-size: 23px; }
+    .message { font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+<div id="balloons"></div>
+<div id="rockets"></div>
+<div id="confetti"></div>
+
+<main>
+    <p style="color:#ffd6ef;letter-spacing:3px;font-size:12px">
+        A LITTLE SURPRISE FOR MALINI
+    </p>
+
+    <h1>Happy <span>Birthday Malini</span> ❤️</h1>
+    <p class="subtitle">A sky full of wishes, a heart full of love ✨</p>
+
+    <div class="scene">
+        <div class="envelope open" id="envelope">
+
+            <div class="envelope-back"></div>
+
+            <div class="letter">
+                <div>✦ ✧ ✦</div>
+                <div class="cake">🎂</div>
+                <h2>Happy Birthday, Malini!</h2>
+
+                <p class="message">
+                    May your day be full of happiness, laughter,
+                    beautiful memories and endless love.
+                    You make the world brighter just by being you.
+                    Wishing you all the magic you deserve! ❤️
+                </p>
+
+                <button class="love-button" id="loveButton">
+                    ♥ Love Faster ♥
+                </button>
+
+                <p class="note" id="note">
+                    Tap here to send more love 💕
+                </p>
+            </div>
+
+            <div class="flap"></div>
+            <div class="front-left"></div>
+            <div class="front-right"></div>
+            <div class="front-bottom"></div>
+            <div class="seal">♥</div>
+
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="openButton">💌 Close the letter</button>
+        <button id="fireworkButton">🎆 Launch fireworks</button>
+    </div>
+
+    <p class="footer">Made with love, just for you 💖</p>
+</main>
+
+<script>
+// OPEN AND CLOSE THE BIRTHDAY LETTER
+const envelope = document.getElementById("envelope");
+const openButton = document.getElementById("openButton");
+
+let isOpen = true;
+
+openButton.addEventListener("click", () => {
+    isOpen = !isOpen;
+    envelope.classList.toggle("open", isOpen);
+    openButton.textContent = isOpen
+        ? "💌 Close the letter"
+        : "💌 Open the letter";
+
+    if (isOpen) {
+        createConfetti(40);
+        launchRandomFirework();
+    }
+});
+
+// FLOATING BALLOONS
+const balloonLayer = document.getElementById("balloons");
+
+function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+
+    const colors = [
+        "#ff4d9b", "#ffbf4d", "#8c70ff",
+        "#4ddcff", "#ff6684", "#c87bff"
+    ];
+
+    balloon.style.setProperty(
+        "--color",
+        colors[Math.floor(Math.random() * colors.length)]
+    );
+
+    balloon.style.left = Math.random() * 100 + "%";
+    balloon.style.setProperty("--duration", (10 + Math.random() * 10) + "s");
+
+    balloonLayer.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 22000);
+}
+
+setInterval(createBalloon, 1000);
+
+for (let i = 0; i < 12; i++) {
+    setTimeout(createBalloon, i * 200);
+}
+
+// DIWALI ROCKETS LAUNCH UPWARD
+const rocketLayer = document.getElementById("rockets");
+
+function launchRocket() {
+    const rocket = document.createElement("div");
+    rocket.className = "rocket";
+
+    const x = 8 + Math.random() * 84;
+    rocket.style.setProperty("--x", x + "%");
+    rocketLayer.appendChild(rocket);
+
+    setTimeout(() => {
+        launchFirework(window.innerWidth * x / 100,
+            window.innerHeight * (0.15 + Math.random() * 0.35));
+        rocket.remove();
+    }, 1250);
+}
+
+setInterval(launchRocket, 2800);
+setTimeout(launchRocket, 500);
+
+// CONFETTI
+function createConfetti(amount) {
+    const layer = document.getElementById("confetti");
+    const colors = [
+        "#ff4f9a", "#ffd166", "#70e1ff",
+        "#b69cff", "#ffffff", "#7dffcb"
+    ];
+
+    for (let i = 0; i < amount; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "%";
+
+        piece.style.setProperty(
+            "--color",
+            colors[Math.floor(Math.random() * colors.length)]
+        );
+
+        piece.style.setProperty("--duration", (3 + Math.random() * 4) + "s");
+        piece.style.setProperty("--drift", (-140 + Math.random() * 280) + "px");
+
+        layer.appendChild(piece);
+        setTimeout(() => piece.remove(), 7500);
+    }
+}
+
+// LOVE FASTER BUTTON
+document.getElementById("loveButton").addEventListener("click", () => {
+    const note = document.getElementById("note");
+    note.textContent = "Sending you a million hearts! 💖✨";
+
+    createHearts(25);
+    createConfetti(35);
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(launchRandomFirework, i * 180);
+    }
+});
+
+function createHearts(amount) {
+    const button = document.getElementById("loveButton");
+    const rect = button.getBoundingClientRect();
+
+    for (let i = 0; i < amount; i++) {
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = Math.random() > .3 ? "♥" : "♡";
+
+        heart.style.left = rect.left + rect.width / 2 + "px";
+        heart.style.top = rect.top + rect.height / 2 + "px";
+        heart.style.setProperty("--dx", (-160 + Math.random() * 320) + "px");
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1700);
+    }
+}
+
+// FIREWORKS CANVAS
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+let particles = [];
+
+function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+function launchFirework(x, y) {
+    const colors = [
+        "#ff4f9a", "#ffd166", "#7ee7ff",
+        "#b69cff", "#ff835e", "#a0ffcf"
+    ];
+
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const count = 75;
+
+    for (let i = 0; i < count; i++) {
+        const angle = Math.PI * 2 * i / count;
+        const speed = 1 + Math.random() * 4;
+
+        particles.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            life: 60,
+            maxLife: 60,
+            color,
+            size: 1 + Math.random() * 2
+        });
+    }
+}
+
+function launchRandomFirework() {
+    launchFirework(
+        window.innerWidth * (0.1 + Math.random() * 0.8),
+        window.innerHeight * (0.1 + Math.random() * 0.4)
+    );
+}
+
+document.getElementById("fireworkButton").addEventListener("click", () => {
+    for (let i = 0; i < 6; i++) {
+        setTimeout(launchRandomFirework, i * 200);
+    }
+    createConfetti(70);
+});
+
+function animateFireworks() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles = particles.filter(p => p.life > 0);
+
+    for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.985;
+        p.vy = p.vy * 0.985 + 0.035;
+        p.life--;
+
+        ctx.globalAlpha = p.life / p.maxLife;
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = p.color;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+    ctx.shadowBlur = 0;
+
+    requestAnimationFrame(animateFireworks);
+}
+
+animateFireworks();
+
+// AUTOMATIC SKY FIREWORKS
+setInterval(() => {
+    if (Math.random() > 0.4) {
+        launchRandomFirework();
+    }
+}, 4200);
+
+// START WITH A CELEBRATION
+createConfetti(45);
+setTimeout(launchRandomFirework, 700);
+</script>
+
+</body>
+</html>
